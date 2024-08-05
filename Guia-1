@@ -1,0 +1,637 @@
+
+1)
+public class Main
+{
+    public static void main(String[] args) {
+        int matriz[][] = 
+        { 
+            {4, 1, 3},
+            {6, 4, 1}, //2x3
+        };
+    System.out.print(sumarMatriz(matriz));
+    }
+    public static int sumarMatriz(int matriz[][]){
+    int suma=0;
+    for(int fila=0; fila < matriz.length ; fila++){
+        for(int columna=0; columna < matriz[0].length; columna++){
+            suma =  suma + matriz[fila][columna];
+        }
+    }
+    return suma;
+    }
+}
+
+2)
+public class Main
+{
+    public static void main(String[] args) {
+        int matriz[][] = 
+        { 
+            {1,2,3},
+            {4,3,1},
+            {1,1,-1}, //3x3
+        };
+        
+    int pos = contarPositivos(matriz);
+    System.out.print("La cantidad de positivos son: "+ pos);
+    }
+    public static int contarPositivos(int matriz[][]){
+        int positivos=0;
+        for(int fila=0; fila < matriz.length ; fila++){
+            for(int columna=0; columna < matriz[0].length; columna++){
+                if(matriz[fila][columna] > 0){ 
+                    positivos = positivos + 1; 
+                }
+            }
+        }
+    return positivos;
+    }
+}
+
+3)
+public class Main
+{
+    public static void main(String[] args) {
+        int matriz[][] =
+        {
+            {2, 3},
+            {1, -5}
+        };
+        int fila = 0;
+        
+    int posicion = mayorColumna(matriz, fila);
+    System.out.print("El mayor se encuentra en la posicion: "+ posicion);
+    }
+    
+    //devuelva la columna que contiene el máximo elemento de esa fila.
+    public static int mayorColumna(int matriz[][], int f){
+        int mayor = matriz[f][0];
+        int col = 0;
+        for(int columna=1; columna < matriz[f].length ; columna++){
+            if(mayor < matriz[f][columna]){
+                mayor = matriz[f][columna];
+                col = columna;
+            }
+        }
+        return col;
+    }
+}
+4)
+public class Main
+{
+    public static void main(String[] args) {
+        int matriz[][] =
+        {
+            {1,2,30},
+            {40,5,6},
+            {4,8,9}
+        };
+        int columna=0;
+        
+        System.out.print("La fila donde se encuentra el mayor: "+filaDelMayor(matriz, columna));
+    }
+    
+    public static int filaDelMayor(int m[][], int colum){
+        int f=0;
+        int mayor=m[0][colum];
+        
+        for(int fila=0; fila<m.length; fila++){
+            if(m[fila][colum] > mayor){
+                mayor = m[fila][colum];
+                f= fila;
+            }
+        }
+        
+        return f;
+        
+    }
+}
+
+5)
+public class Main
+{
+    public static void main(String[] args) {
+        int matriz[][] = {
+            {5, 6, 90},
+            {11, -5, 0},
+            {33, 1, 2}
+        };
+        
+        int fila = filaDelMaximo(matriz);
+        System.out.print("La fila donde se encuentra el mayor es: "+ fila);
+        
+    }
+    public static int filaDelMaximo(int mat[][]){
+        int maximo= mat[0][0];
+        int f=0;
+        
+        for(int fila=0; fila < mat.length ; fila++){
+            for(int columna=0; columna < mat[0].length; columna++){
+                if(maximo < mat[fila][columna]){
+                    maximo = mat[fila][columna];
+                    f= fila;
+                }
+            }
+        }
+        return f;
+    }
+}
+
+
+
+6)
+public class Main
+{
+    public static void main(String[] args) {
+        int matriz[][] = {
+            {5, 6, 90},
+            {11, -5, 0},
+            {33, 1, 2}
+        };
+        
+        int colum = columnaDelMaximo(matriz);
+        System.out.print("La columna donde se encuentra el mayor es: "+ colum);
+        
+    }
+    public static int columnaDelMaximo(int mat[][]){
+        int maximo= mat[0][0];
+        int c=0;
+        
+        for(int fila=0; fila < mat.length ; fila++){
+            for(int columna=0; columna < mat[0].length; columna++){
+                if(maximo < mat[fila][columna]){
+                    maximo = mat[fila][columna];
+                    c= columna;
+                }
+            }
+        }
+        return c;
+    }
+}
+
+7)
+public class Main {
+    public static void main(String[] args) {
+        int matriz[][] = {
+            {5, 6, 9},
+            {11, -5, 0},
+            {33, 1, 2}
+        };
+
+        int fila = filaDelMaximo(matriz);
+        System.out.print("La fila donde se encuentra el mayor es: " + fila);
+    }
+
+    public static int filaDelMaximo(int mat[][]) {
+        int maximo = mat[0][0];
+        int fila = 0;
+
+        for (int i = 0; i < mat.length; i++) {
+            for (int j = 0; j < mat[i].length; j++) {
+                if (mat[i][j] > maximo) {
+                    maximo = mat[i][j];
+                    fila = i;
+                }
+            }
+        }
+        return fila;
+    }
+}
+
+8)
+public class Main
+{
+    public static void main(String[] args) {
+        int matriz[][] = {
+            {5, 6, 90},
+            {11, -5, 100},
+            {333, 1, 2}
+        };
+        
+        int entero=333;
+        int posicion[] = posicionDelMaximo(matriz,entero);
+        if(posicion[0] == -1){
+            System.out.println("El número ingresado no se encuentra en la matris");
+        }
+        else{
+            for(int i=0; i<posicion.length; i++){
+            System.out.println("La posicion donde se encuentra el numero ingresado es: "+ posicion[i]);
+            }
+        }
+        
+        
+    }
+    public static int[] posicionDelMaximo(int mat[][], int num){
+        //int maximo= mat[0][0];
+        int p[]=new int[2];
+        p[0]=-1;
+        
+        for(int fila=0; fila < mat.length ; fila++){
+            for(int columna=0; columna < mat[0].length; columna++){
+                if(num == mat[fila][columna]){
+                    p[0]=fila;
+                    p[1]=columna;
+                }
+            }
+        }
+        return p;
+    }
+}
+
+9)
+public class Main
+{
+    public static void main(String[] args) {
+        int matriz[][] = {
+            {5, 6, 90},
+            {11, -5, 100},
+            {333, 1, 2}
+        };
+        
+        int fila2=1;
+        int suma = sumarMatriz1(matriz, fila2);
+        System.out.println("La suma de los enteros de la fila "+fila2+" es: "+suma);
+        
+        
+    }
+    public static int sumarMatriz1(int mat[][], int fila2){
+        int sumar=0;
+            for(int columna=0; columna < mat[0].length; columna++){
+                sumar = sumar + mat[fila2][columna];
+            }
+            return sumar;
+            
+    }
+        
+        
+}
+
+10)
+public class Main{
+    public static void main(String[] args) {
+        
+        //Matriz de ejemplo
+        int[][] matriz = {
+            {1, 2, 3}, 
+            {0, 0, 0}, 
+            {7, 8, 9}
+        };
+
+        //intercambiamos las filas
+        int fila1 = 0;
+        int fila2 = 1;
+
+        // para intercambiar las filas 
+        int m[][] = intercambioFilas(matriz, fila1, fila2);
+        
+        for (int fila= 0; fila< m.length; fila++){
+            for ( int columnas=0; columnas< m[0].length; columnas++){
+                System.out.print(m[fila][columnas]);
+            }
+            System.out.println(" ");
+        }
+    }
+    
+    public static int[][] intercambioFilas (int[][] matriz,int fila1,int fila2){
+        int aux; 
+        //recorre las columnas 
+        for(int columna=0; columna< matriz[0].length; columna++)
+        {
+            //izquierda contenedor(donde quiero guardar)y el = es que quiero guardar
+            aux = matriz[fila1][columna];
+            matriz[fila1][columna] = matriz[fila2][columna];
+            matriz[fila2][columna] = aux;
+        }
+        
+        return matriz;
+    }
+}
+
+11)
+public class Main{
+    public static void main(String[] args) {
+        
+        //Matriz de ejemplo
+        int[][] matriz = {
+            {1, 2, 3}, 
+            {0, 0, 0}, 
+            {7, 8, 9}
+        };
+
+        //intercambiamos las filas
+        int fila1 = 0;
+        int fila2 = 1;
+
+        // para intercambiar las filas 
+        int m[][] = intercambioFilas(matriz, fila1, fila2);
+        
+        for (int fila= 0; fila< m.length; fila++){
+            for ( int columnas=0; columnas< m[0].length; columnas++){
+                System.out.print(m[fila][columnas]);
+            }
+            System.out.println(" ");
+        }
+    }
+    
+    public static int[][] intercambioFilas (int[][] matriz,int fila1,int fila2){
+        int aux; 
+        //recorre las columnas 
+        for(int columna=0; columna< matriz[0].length; columna++)
+        {
+            //izquierda contenedor(donde quiero guardar)y el = es que quiero guardar
+            aux = matriz[fila1][columna];
+            matriz[fila1][columna] = matriz[fila2][columna];
+            matriz[fila2][columna] = aux;
+        }
+        
+        return matriz;
+    }
+}
+
+12)
+public class Main {
+    public static void main(String[] args) {
+        int[][] matriz = {
+            {1, 2, 3}, 
+            {4, 5, 6}, 
+            {7, 8, 9}
+        };
+
+        int columna1 = 0;
+        int columna2 = 2;
+
+        if (columna1 >= 0 && columna1 < matriz[0].length && columna2 >= 0 && columna2 < matriz[0].length) {
+            int[][] m = intercambioColumnas(matriz, columna1, columna2);
+            for (int fila = 0; fila < m.length; fila++) {
+                for (int columna = 0; columna < m[0].length; columna++) {
+                    System.out.print(m[fila][columna] + " ");
+                }
+                System.out.println();
+            }
+        } else {
+            System.out.println("Los índices de columna proporcionados son inválidos.");
+        }
+    }
+    
+    public static int[][] intercambioColumnas(int[][] matriz, int columna1, int columna2) {
+        int aux; 
+        for (int fila = 0; fila < matriz.length; fila++) {
+            aux = matriz[fila][columna1];
+            matriz[fila][columna1] = matriz[fila][columna2];
+            matriz[fila][columna2] = aux;
+        }
+        
+        return matriz;
+    }
+}
+
+13)
+public class Main
+{
+    public static void main(String[] args) {
+        //Matriz de ejemplo
+        int m[][] = {
+            {1, 2, 3}, 
+            {4, 6, 2}, 
+            {7, 8, 9}
+        };
+        
+        m = matrizDerecha(m);
+        
+        for(int fila=0; fila < m.length; fila++){
+            for(int columna=0; columna < m[0].length; columna++){
+                System.out.print(m[fila][columna] + " ,");
+            }
+            System.out.println(" ");
+        }
+        
+    }
+    
+    public static int[][] matrizDerecha(int matriz[][]){
+        int save1 = matriz[0][0], siguiente;
+        
+        for(int fila=0; fila < matriz.length; fila++){
+            for(int columna=0; columna < matriz[0].length; columna++){
+                if(matriz.length-1 == fila && matriz[0].length-1 == columna){
+                    matriz[0][0] = save1; // 9
+                    
+                }
+                else{
+                    if(columna == matriz[0].length-1){
+                    siguiente = matriz[fila+1][0]; // 4
+                    matriz[fila+1][0] = save1; // 3
+                    save1 = siguiente;
+                    
+                } else{
+                    siguiente = matriz[fila][columna+1]; // 
+                    matriz[fila][columna+1] = save1;
+                    save1=siguiente;
+                }    
+                }
+                
+            }
+        }
+        return matriz;
+    }
+}
+
+14)
+public class Main
+{
+    public static void main(String[] args) {
+        //Matriz de ejemplo
+        int m[][] = {
+            {1, 2, 3}, 
+            {4, 6, 2}, 
+            {7, 8, 9}
+        };
+        
+        m = matrizDerecha(m);
+        
+        for(int fila=0; fila < m.length; fila++){
+            for(int columna=0; columna < m[0].length; columna++){
+                System.out.print(m[fila][columna] + " ,");
+            }
+            System.out.println(" ");
+        }
+        
+    }
+    
+    public static int[][] matrizDerecha(int matriz[][]){
+        int save1 = matriz[2][2];
+        int anterior;
+        
+        for(int fila=2; fila >= 0; fila--){
+            for(int columna=2; columna >= 0; columna--){
+                if(0 == fila && 0 == columna){
+                    matriz[2][2] = save1; 
+                    
+                }
+                else{
+                    if(columna == 0){
+                    anterior = matriz[fila-1][columna+2];
+                    matriz[fila-1][columna+2] = save1; 
+                    save1 = anterior; 
+                    
+                } else{
+                    
+                    anterior = matriz[fila][columna-1];
+                    matriz[fila][columna-1] = save1; 
+                    save1=anterior;
+                }    
+                }
+                
+            }
+        }
+        return matriz;
+    }
+}
+
+15) 
+public class Main{
+    public static void main(String[] args) {
+        double[][] matriz1 = {{1.5, 2.0, 3.0}, {4.0, 5.5, 6.0}};
+        double[][] matriz2 = {{0.5, 1.0, 2.0}, {3.0, 2.5, 1.0}};
+
+        double[][] resultado = sumarMatrices(matriz1, matriz2);
+
+        System.out.println("La matriz suma es:");
+        imprimirMatriz(resultado);
+    }
+
+    public static double[][] sumarMatrices(double[][] matriz1, double[][] matriz2) {
+        int filas = matriz1.length;
+        int columnas = matriz1[0].length;
+        double[][] resultado = new double[filas][columnas];
+
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                resultado[i][j] = matriz1[i][j] + matriz2[i][j];
+            }
+        }
+
+        return resultado;
+    }
+
+    public static void imprimirMatriz(double[][] matriz) {
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[0].length; j++) {
+                System.out.print(matriz[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+16)
+public class Main {
+    public static void main(String[] args) {
+        int[][] matriz1 = {
+            {1, 2, 3}, 
+            {4, 5, 6}, 
+            {7, 8, 9}
+        };
+        int [][] matriz2 = {
+            {1, 1, 1}, 
+            {1, 1, 1}, 
+            {1, 1, 1}
+        };
+        //imprime las matrices
+        int[][] resultado = RestaMatrices(matriz1, matriz2);
+        imprimirMatriz(resultado);
+    }
+    //siempre se pone doble [][] paraa que sepa que es una matriz
+        public static int[][] RestaMatrices(int[][] matriz1, int[][] matriz2) {
+        int[][] resultado = new int[matriz1.length][matriz1[0].length];
+        
+        // Sumar las matrices
+        for (int i = 0; i < resultado.length; i++) {
+            for (int j = 0; j < resultado[0].length; j++) {
+                resultado[i][j] = matriz1[i][j] - matriz2[i][j];
+            }
+        }
+        
+        return resultado;
+    }
+    //utilizarla 
+    public static void imprimirMatriz(int[][] matriz) {
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[0].length; j++) {
+                System.out.print(matriz[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+17)
+public class Main {
+    public static void main(String[] args) {
+        int[][] matriz1 = {
+            {1, 2, 3}, 
+            {4, 5, 6}, 
+            {7, 8, 9}
+        };
+        int [][] matriz2 = {
+            {2, 1, 1}, 
+            {2, 10, 2}, 
+            {2, 2, 2}
+        };
+        //imprime las matrices
+        int[][] resultado = MultiplicaciondeMatrices(matriz1, matriz2);
+        imprimirMatriz(resultado);
+    }
+    //siempre se pone doble [][] paraa que sepa que es una matriz
+        public static int[][] MultiplicaciondeMatrices(int[][] matriz1, int[][] matriz2) {
+        int[][] resultado = new int[matriz1.length][matriz1[0].length];
+        
+        // Sumar las matrices
+        for (int i = 0; i < resultado.length; i++) {
+            for (int j = 0; j < resultado[0].length; j++) {
+                resultado[i][j] = matriz1[i][j] * matriz2[i][j];
+            }
+        }
+        
+        return resultado;
+    }
+    //utilizarla 
+    public static void imprimirMatriz(int[][] matriz) {
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[0].length; j++) {
+                System.out.print(matriz[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+18)
+public class Main {
+    
+    public static void main(String[] args) {
+        double[][] matrizOriginal = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
+        double[][] matrizTranspuesta = transponerMatriz(matrizOriginal);
+        for (int i = 0; i < matrizTranspuesta.length; i++) {
+            for (int j = 0; j < matrizTranspuesta[0].length; j++) {
+                System.out.print(matrizTranspuesta[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+    
+    public static double[][] transponerMatriz(double[][] matriz) {
+        int filas = matriz.length;
+        int columnas = matriz[0].length;
+        double[][] matrizTranspuesta = new double[columnas][filas];
+        
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                matrizTranspuesta[j][i] = matriz[i][j];
+            }
+        }
+        
+        return matrizTranspuesta;
+    }
+}
+
+
